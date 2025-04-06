@@ -6,7 +6,7 @@
             return;
         }
 
-        window.lampac_src_filter_plugin = true;
+        
 alert("Hello");
     };
 
