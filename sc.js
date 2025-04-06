@@ -1,13 +1,8 @@
 (function () {
     'use strict'
 
-    function start() {
-        if (window.lampac_src_filter_plugin) {
-            return;
-        }
-
+    function start() {       
         
-alert("Hello");
     };
 
     if (window.appready) {
