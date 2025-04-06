@@ -7,7 +7,10 @@
         }
 
         window.lampac_src_filter_plugin = true;
-        console.log("BUDDY!");
+
+        if (Lampa.Activity.active().component.toLowerCase() == "main") {
+            console.log("BUDDY!");
+        }
     }
 
     if (window.appready) {
