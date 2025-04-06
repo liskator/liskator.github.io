@@ -19,7 +19,7 @@
             if (componentName !== 'main') {
                 return;
             }
-            console.log("LISKATOR");
+            console.log("BUDDY");
         });
     }
 
