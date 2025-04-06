@@ -12,7 +12,7 @@
         Lampa.Listener.follow('app', function (event) {
         if (Lampa.Activity.active().component.toLowerCase() == "main") {
             console.log("BUDDY!");
-        };
+        }
         });
     };
 
