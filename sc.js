@@ -2,8 +2,12 @@
     'use strict'
 
     function start() {
-            console.log("BUDDY!");
-        });
+        if (window.lampac_src_filter_plugin) {
+            return;
+        }
+
+        window.lampac_src_filter_plugin = true;
+        console.log("BUDDY!");
     }
 
     if (window.appready) {
