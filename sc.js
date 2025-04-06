@@ -8,11 +8,13 @@
 
         window.lampac_src_filter_plugin = true;
 
-        Lampa.Controller.listener.follow('app', function (event) {
-            if (Lampa.Activity.active().component.toLowerCase() == "main") {
-                console.log("BUDDY!");
-            }
+
+        Lampa.Listener.follow('app', function (event) {
+        if (Lampa.Activity.active().component.toLowerCase() == "main") {
+            console.log("BUDDY!");
+        };
         });
+    };
 
     if (window.appready) {
         start();
