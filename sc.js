@@ -13,9 +13,9 @@
                 return;
             }
             if (Lampa.Activity.active().component.toLowerCase() == "main") {
-            console.log("BUDDY!");
+                console.log("BUDDY!");
             }
-    }
+        });
 
     if (window.appready) {
         start();
