@@ -17,7 +17,7 @@
                 onMain: (data) => {
                     return {
                     title:['История'],
-                    results:JSON.parse(localStorage.getItem('favorite')).card.reverse(),
+                    results:JSON.parse(localStorage.getItem('favorite')).card.reverse().slice(0,19),
                     }
                 }
             };
