@@ -18,7 +18,7 @@
                     return {
                     title:['История'],
                     results:JSON.parse(localStorage.getItem('favorite')).card.reverse(),
-                    url:"&title=Историяпросмотров&component=favorite&type=history&page=1"    
+                    url:'title=&component=favorite&type=history&page=2'
                     }
                 }
             };
