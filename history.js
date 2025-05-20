@@ -18,6 +18,7 @@
                     return {
                     title:['История'],
                     results:JSON.parse(localStorage.getItem('favorite')).card.reverse(),
+                    url:"?url=&title=История%20просмотров&component=favorite&type=history&page=1"    
                     }
                 }
             };
