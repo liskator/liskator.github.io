@@ -21,9 +21,7 @@
                     }
                 }
             };
-            if (JSON.parse(localStorage.getItem('favorite'))){
-                Lampa.Manifest.plugins = manifest;
-            }
+            Lampa.Manifest.plugins = manifest;
         };
 
         if (window.appready) {
