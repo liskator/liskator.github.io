@@ -32,7 +32,37 @@
         Lampa.Storage.set('source', 'tmdb');
         Lampa.Storage.set('keyboard_type', 'integrate');
 
+        Lampa.Controller.listener.follow('toggle', function (event) {
+            if (event.name !== 'select') {
+                return;
+            }
 
+            var $filterTitle = $('.selectbox__title');
+
+            if ($filterTitle.length !== 1 || $filterTitle.text() !== Lampa.Lang.translate('filter_sorted')) {
+                return;
+            }
+            var $selectOptions = $('.selectbox-item');
+            let regvar = /\d{3,4}p$/;
+            const sortedElements = $selectOptions.toArray().sort((a, b) => {
+                const matchA = a.innerText.match(regvar);
+                const matchB = b.innerText.match(regvar);
+
+                const numA = matchA ? parseInt(matchA[0]) : 0;
+                const numB = matchB ? parseInt(matchB[0]) : 0;
+
+                return numB - numA; // Descending order
+            });
+
+            $selectOptions = $(sortedElements);
+
+            if ($selectOptions.length > 0) {
+                $selectOptions.first().after($selectOptions);
+            } else {
+                $('body > .selectbox').find('.scroll__body').prepend($selectOptions);
+            }
+
+        });
     }; 
 
     if (window.appready) {
