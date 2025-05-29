@@ -31,7 +31,7 @@
         //Lampa.Storage.set('card_interfice_type', 'old');
         Lampa.Storage.set('source', 'tmdb');
         Lampa.Storage.set('keyboard_type', 'integrate');
-
+        //сортировка источников по качеству
         Lampa.Controller.listener.follow('toggle', function (event) {
             if (event.name !== 'select') {
                 return;
