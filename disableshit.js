@@ -25,7 +25,7 @@
             trailers: true,
         }
 
-        localStorage.setItem('menu_hide', JSON.stringify(["Персоны", "Лента", "Расписание", "Релизы", "Подписки",]));
+        localStorage.setItem('menu_hide', JSON.stringify(["Персоны", "Лента", "Расписание", "Релизы", "Подписки","Спорт"]));
         localStorage.setItem('helper', 'false');
         localStorage.setItem('screensaver', 'false');
         //Lampa.Storage.set('card_interfice_type', 'old');
