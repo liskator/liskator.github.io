@@ -1,5 +1,17 @@
 (function () {
     'use strict'
+        var unic_id = Lampa.Storage.get('lampac_unic_id', '');
+        if (!unic_id) {
+            unic_id = Lampa.Utils.uid(8).toLowerCase();
+            Lampa.Storage.set('lampac_unic_id', unic_id);
+        }
+
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
 
     function start() {
         if (window.lampac_disable_shiiet) {
@@ -31,7 +43,7 @@
         //Lampa.Storage.set('card_interfice_type', 'old');
         Lampa.Storage.set('source', 'tmdb');
         Lampa.Storage.set('keyboard_type', 'integrate');
-        //сортировка источников по качеству
+
         Lampa.Controller.listener.follow('toggle', function (event) {
             if (event.name !== 'select') {
                 return;
@@ -61,7 +73,15 @@
             } else {
                 $('body > .selectbox').find('.scroll__body').prepend($selectOptions);
             }
-
+        });
+        // Отобразить место на диске 
+        Lampa.Listener.follow('activity',function (e) {
+            if(e.component==="lampac_dnla" && e.type === "start" )
+            {
+                console.log('Disk Space:', httpGet('/status/disk?uid='+unic_id) ,"GB");
+	            $('.dlna-disk-space').remove();
+                $('.lampac-dnla-head').find('div').after("<div class='dlna-disk-space'><b>"+httpGet('/status/disk?uid='+unic_id)+" GB</b> Свободно на диске</div>");
+            }
         });
     }; 
 
