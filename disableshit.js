@@ -78,7 +78,7 @@
         Lampa.Listener.follow('activity',function (e) {
             if(e.component==="lampac_dnla" && e.type === "start" )
             {
-                console.log('Disk Space:', httpGet('/status/disk?uid='+unic_id) ,"GB");
+                console.log('Disk Space:', httpGet(window.location.origin+'/status/disk?uid='+unic_id) ,"GB");
 	        $('.dlna-disk-space').remove();
                 $('.lampac-dnla-head').find('div').after("<div class='dlna-disk-space'><b>"+httpGet('/status/disk?uid='+unic_id)+" GB</b> Свободно на диске</div>");
             }
