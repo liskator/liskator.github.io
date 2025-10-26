@@ -8,7 +8,7 @@
 
     function httpGet(theUrl) {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.open("GET", theUrl); // false for synchronous request
         xmlHttp.send(null);
         return xmlHttp.responseText;
     }
@@ -78,9 +78,9 @@
         Lampa.Listener.follow('activity',function (e) {
             if(e.component==="lampac_dnla" && e.type === "start" )
             {
-                console.log('Disk Space:', httpGet(window.location.origin+'/status/disk?uid='+unic_id) ,"GB");
+                console.log('Disk Space:', httpGet('https://lisklamp.isplevel.pro/status/disk?uid='+unic_id) ,"GB");
 	        $('.dlna-disk-space').remove();
-                $('.lampac-dnla-head').find('div').after("<div class='dlna-disk-space'><b>"+httpGet(window.location.origin+'/status/disk?uid='+unic_id)+" GB</b> Свободно на диске</div>");
+                $('.lampac-dnla-head').find('div').after("<div class='dlna-disk-space'><b>"+httpGet('https://lisklamp.isplevel.pro/status/disk?uid='+unic_id)+" GB</b> Свободно на диске</div>");
             }
         });
     }; 
