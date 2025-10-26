@@ -5,7 +5,9 @@
             if (window.lampac_hist) {
                 return;
             }
-
+            if (!localStorage.getItem('favorite')) {
+                return;
+            }
             window.lampac_hist = true;
 
             const manifest = {
