@@ -5,7 +5,7 @@
             if (window.lampac_hist) {
                 return;
             }
-            if (localStorage.getItem('favorite') == null) {
+            if (window.localStorage.getItem('favorite') == null) {
                 return;
             }
             window.lampac_hist = true;
