@@ -21,7 +21,7 @@
         window.lampac_disable_shiiet = true;
 
         //скрыть колокольчик и фид
-        $('.head .notice--icon, .head .open--feed').remove();
+        $('.head .notice--icon, .head .open--feed, .head .open--profile').remove();
 
         //скрыть кнопку реакций
         Lampa.Listener.follow('full', function (e) {
