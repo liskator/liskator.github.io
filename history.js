@@ -22,7 +22,7 @@
                     })
                 }
             }
-        })
+        });
 
         if (window.appready) {
             start();
