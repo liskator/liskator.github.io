@@ -10,20 +10,30 @@
             }
             window.lampac_hist = true;
 
-            const manifest = {
-                type: 'control',
-                version: '1.0',
-                name: 'History',
-                description: 'History',
-                component: 'History',
-                onMain: (data) => {
-                    return {
-                    title:['История'],
-                    results:JSON.parse(localStorage.getItem('favorite')).card.reverse().slice(0,9),
-                    }
-                }
-            };
-            Lampa.Manifest.plugins = manifest;
+function GetHist () {    let data = {}
+    let params = {type:'history'}
+
+    data.results = Lampa.Favorite.get(params)
+    if(params.filter){
+        data.results = data.results.filter(a=>{
+            return params.filter == 'tv' ? a.name : !a.name
+        })
+    }
+   return data.results
+ }
+Lampa.ContentRows.add({
+    index: 0,
+    screen: ['main'],
+    call: (params, screen)=>{
+        // возвращаем функцию с коллбеком
+        return function(call){
+            call({
+                results: GetHist(),
+                title: 'История',
+            })
+        }
+    }
+})
         };
 
         if (window.appready) {
