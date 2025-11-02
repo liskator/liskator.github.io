@@ -10,11 +10,6 @@
             }
             window.lampac_hist = true;
 
-        function GetHist () {    let data = {}
-            let params = {type:'history'}
-            data.results = Lampa.Favorite.get(params)
-           return data.results
-         }
         Lampa.ContentRows.add({
             index: 0,
             screen: ['main'],
@@ -22,13 +17,12 @@
                 // возвращаем функцию с коллбеком
                 return function(call){
                     call({
-                        results: GetHist(),
-                        title: 'История',
+                        results: Lampa.Favorite.get({type:'history'}),
+                        title: 'sosal',
                     })
                 }
             }
         })
-        };
 
         if (window.appready) {
             start();
