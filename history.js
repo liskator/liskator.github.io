@@ -18,7 +18,7 @@
                 return function(call){
                     call({
                         results: Lampa.Favorite.get({type:'history'}),
-                        title: 'sosal',
+                        title: 'История',
                     })
                 }
             }
