@@ -18,11 +18,12 @@
                 return function(call){
                     call({
                         results: Lampa.Favorite.get({type:'history'}),
-                        title: 'История',
+                        title: 'sosal',
                     })
                 }
             }
         });
+        };
 
         if (window.appready) {
             start();
