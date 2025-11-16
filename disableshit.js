@@ -28,7 +28,9 @@
             if (e.type === 'complite') 
                 $('.button--reaction, .full-start-new__reactions').remove();
         });
-
+		//скрыть AI-асистент в поиске
+		Lampa.Controller.listener.follow('toggle',(e)=>{if (e.name==="search") $("#app .search__sources div:nth-child(5)").remove();});
+		
         //основные настройки
         window.lampa_settings.disable_features = {
             dmca: true,
@@ -37,6 +39,7 @@
             trailers: true,
         }
 
+		
         localStorage.setItem('menu_hide', JSON.stringify(["Персоны", "Лента", "Расписание", "Релизы", "Подписки","Спорт"]));
         localStorage.setItem('helper', 'false');
         localStorage.setItem('screensaver', 'false');
