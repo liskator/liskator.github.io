@@ -12,6 +12,22 @@
         xmlHttp.send(null);
         return xmlHttp.responseText;
     }
+	function hideShots() {
+        document.querySelectorAll('.selectbox-item').forEach(function(item) {
+            var use = item.querySelector('use');
+            if (use) {
+                var href = use.getAttribute('xlink:href') || use.getAttribute('href');
+                if (href === '#sprite-shots') {
+                    item.style.display = 'none';
+                }
+            }
+        });
+
+        document.querySelectorAll('.shots-player-recordbutton').forEach(function(el) {
+            el.style.display = 'none';
+        });
+    }
+
 
     function start() {
         if (window.lampac_disable_shiiet) {
@@ -86,6 +102,10 @@
                 $('.lampac-dnla-head').find('div').after("<div class='dlna-disk-space'><b>"+httpGet('https://lisklamp.isplevel.pro/status/disk?uid='+unic_id)+" GB</b> Свободно на диске</div>");
             }
         });
+		//hide shorts
+	var observer = new MutationObserver(hideShots);
+    observer.observe(document.body, { childList: true, subtree: true });
+    hideShots();
     }; 
 
     if (window.appready) {
