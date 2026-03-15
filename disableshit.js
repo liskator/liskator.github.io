@@ -50,7 +50,7 @@
         //основные настройки
         window.lampa_settings.disable_features = {
             dmca: true,
-            ai: false,
+            ai: true,
             subscribe: true,
             trailers: true,
         }
