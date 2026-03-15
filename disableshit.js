@@ -45,7 +45,7 @@
                 $('.button--reaction, .full-start-new__reactions').remove();
         });
 		//скрыть AI-асистент в поиске
-		Lampa.Controller.listener.follow('toggle',(e)=>{if (e.name==="search") $("#app .search__sources div:nth-child(5)").remove();});
+		//Lampa.Controller.listener.follow('toggle',(e)=>{if (e.name==="search") $("#app .search__sources div:nth-child(5)").remove();});
 		
         //основные настройки
         window.lampa_settings.disable_features = {
